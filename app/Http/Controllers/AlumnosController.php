@@ -35,33 +35,40 @@ class AlumnosController extends Controller
         $alumno->correo = $request->correo;
         $alumno->fecha_nacimiento = $request->fecha_nacimiento;
         $alumno->sexo = $request->sexo;
-        $alumno->carrea = $request->carrera;
+        $alumno->carrera = $request->carrera;
         $alumno->save();
-        return redirect()->route('alumnos.lista-alumnos-index');
+        return redirect()->route('alumno.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Alumnos $alumnos)
+    public function show(Alumnos $alumno)
     {
-        //
+        return view('alumnos.lista-alumnos-show', compact('alumno'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Alumnos $alumnos)
+    public function edit(Alumnos $alumno)
     {
-        //
+        return view('alumnos.lista-alumnos-edit', compact('alumno'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Alumnos $alumnos)
+    public function update(Request $request, Alumnos $alumno)
     {
-        //
+        $alumno->nombre = $request->nombre;
+        $alumno->codigo = $request->codigo;
+        $alumno->correo = $request->correo;
+        $alumno->fecha_nacimiento = $request->fecha_nacimiento;
+        $alumno->sexo = $request->sexo;
+        $alumno->carrera = $request->carrera;
+        $alumno->save();
+        return redirect()->route('alumno.show', $alumno->id);
     }
 
     /**

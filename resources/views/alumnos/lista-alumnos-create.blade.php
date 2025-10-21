@@ -11,8 +11,8 @@
 
     <h1>Cracion de alumnos</h1>
 
-    <form action="" method="POST">
-        @crsf
+    <form action="{{ route('alumno.store') }}" method="POST">
+        @csrf
         <label for="nombre"> Nombre </label>
         <input type="text" id="nombre" name="nombre">
         <br>
