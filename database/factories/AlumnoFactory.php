@@ -17,7 +17,12 @@ class AlumnoFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre'=>fake()->sentece(),
+            'codigo'=>fake()->word(),
+            'correo'=>fake()->email(),
+            'fecha_nacimiento'=>fake()->date(),
+            'sexo'=>fake()->word(),
+            'carrera'=>fake()->word()
         ];
     }
 }

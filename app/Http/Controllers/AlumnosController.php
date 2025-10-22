@@ -24,7 +24,7 @@ class AlumnosController extends Controller
      */
     public function create()
     {
-       return view('alumnos.lista-alumnos-create');
+        return view('alumnos.lista-alumnos-create');
     }
 
     /**
@@ -32,13 +32,13 @@ class AlumnosController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
-            'nombre' => 'required |max:20',
-            'codigo' => 'required |max:11',
-            'correo' => 'required',
+        $request->validate([
+            'nombre' => 'required |max:50',
+            'codigo' => 'required|max:20',
+            'correo' => 'required|max:80',
             'fecha_nacimiento' => 'required',
-            'sexo' => 'required',
-            'carrera' => 'required',
+            'sexo' => 'required|max:15',
+            'carrera' => 'required|max:40',
         ]);
         $alumno = new Alumnos();
         $alumno->nombre = $request->nombre;
@@ -73,12 +73,12 @@ class AlumnosController extends Controller
     public function update(Request $request, Alumnos $alumno)
     {
         $request->validate([
-            'nombre' => 'required |max:20',
-            'codigo' => 'required|max:11',
-            'correo' => 'required',
+            'nombre' => 'required |max:50',
+            'codigo' => 'required|max:20',
+            'correo' => 'required|max:80',
             'fecha_nacimiento' => 'required',
-            'sexo' => 'required',
-            'carrera' => 'required',
+            'sexo' => 'required|max:15',
+            'carrera' => 'required|max:40',
         ]);
         $alumno->nombre = $request->nombre;
         $alumno->codigo = $request->codigo;
