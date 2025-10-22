@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Alumnos;
 use Illuminate\Http\Request;
 
+use function Pest\Laravel\delete;
+
 class AlumnosController extends Controller
 {
     /**
@@ -74,8 +76,9 @@ class AlumnosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Alumnos $alumnos)
+    public function destroy(Alumnos $alumno)
     {
-        //
+        $alumno->delete();
+        return redirect()->route('alumno.index');
     }
 }
