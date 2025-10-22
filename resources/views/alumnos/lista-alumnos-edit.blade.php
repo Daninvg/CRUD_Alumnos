@@ -10,7 +10,8 @@
 <body>
 
     <h1>Edicion de alumnos</h1>
-
+    
+    @include('formulario-error')
     <form action="{{ route('alumno.update', $alumno->id) }}" method="POST">
         @csrf
         @method('PATCH')

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumnos;
 use Illuminate\Http\Request;
+use Livewire\Attributes\Validate;
 
 use function Pest\Laravel\delete;
 
@@ -63,6 +64,14 @@ class AlumnosController extends Controller
      */
     public function update(Request $request, Alumnos $alumno)
     {
+        $request->validate([
+            'nombre' => 'require | 30 max',
+            'codigo' => 'require | 11 max',
+            'correo' => 'require',
+            'fecha_nacimiento' => 'require',
+            'sexo' => 'require',
+            'carrera' => 'require',
+        ]);
         $alumno->nombre = $request->nombre;
         $alumno->codigo = $request->codigo;
         $alumno->correo = $request->correo;
