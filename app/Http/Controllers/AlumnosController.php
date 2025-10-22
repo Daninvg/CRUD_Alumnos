@@ -33,12 +33,12 @@ class AlumnosController extends Controller
     public function store(Request $request)
     {
          $request->validate([
-            'nombre' => 'require | 30 max',
-            'codigo' => 'require | 11 max',
-            'correo' => 'require',
-            'fecha_nacimiento' => 'require',
-            'sexo' => 'require',
-            'carrera' => 'require',
+            'nombre' => 'required |max:20',
+            'codigo' => 'required |max:11',
+            'correo' => 'required',
+            'fecha_nacimiento' => 'required',
+            'sexo' => 'required',
+            'carrera' => 'required',
         ]);
         $alumno = new Alumnos();
         $alumno->nombre = $request->nombre;
@@ -73,12 +73,12 @@ class AlumnosController extends Controller
     public function update(Request $request, Alumnos $alumno)
     {
         $request->validate([
-            'nombre' => 'require | 30 max',
-            'codigo' => 'require | 11 max',
-            'correo' => 'require',
-            'fecha_nacimiento' => 'require',
-            'sexo' => 'require',
-            'carrera' => 'require',
+            'nombre' => 'required |max:20',
+            'codigo' => 'required|max:11',
+            'correo' => 'required',
+            'fecha_nacimiento' => 'required',
+            'sexo' => 'required',
+            'carrera' => 'required',
         ]);
         $alumno->nombre = $request->nombre;
         $alumno->codigo = $request->codigo;
