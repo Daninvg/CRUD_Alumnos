@@ -9,6 +9,12 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+//Añadimos la ruta que obtiene el valor del layout 
+Route::get('/bienvenida', function(){
+    return view('bienvenida');
+})->name('bienvenida');
+
+//Añado la ruta tipo resourse para acceder a las rutas de los alumnos.
 Route::resource('alumno', AlumnosController::class);
 
 Route::view('dashboard', 'dashboard')

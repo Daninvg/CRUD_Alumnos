@@ -11,7 +11,7 @@
 
     <h1>Cracion de alumnos</h1>
 
-    @include ('Formulario-error')
+    <x-Formulario-error/>
     <form action="{{ route('alumno.store') }}" method="POST">
         @csrf
         <label for="nombre"> Nombre </label>
