@@ -8,10 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-
 <body>
-
-
 <x-encabezado>
     Editar alumno: {{$alumno->nombre}}
 </x-encabezado>
@@ -21,21 +18,21 @@
         @csrf
         @method('PATCH')
         <label for="nombre"> Nombre </label>
-        <input type="text" id="nombre" name="nombre">
+        <input type="text" id="nombre" name="nombre" value="{{ old('nombre') ?? $alumno->nombre}}">
         <br>
         <label for="codigo"> Codigo </label>
-        <input type="text" id="codigo" name="codigo">
+        <input type="text" id="codigo" name="codigo" value="{{ old('codigo') ?? $alumno->codigo}}">
         <br>
         <label for="correo"> Correo </label>
-        <input type="email" id="correo" name="correo">
+        <input type="email" id="correo" name="correo" value="{{ old('correo') ?? $alumno->correo}}">
         <br>
         <label for="fecha_nacimiento"> Fecha de nacimiento </label>
-        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') ?? $alumno->fecha_nacimiento}}">
         <br>
         <label for="sexo"> Sexo </label>
-        <input type="text" id="sexo" name="sexo">
+        <input type="text" id="sexo" name="sexo" value="{{ old('sexo') ?? $alumno->sexo}}">
         <label for="carrera"> Carrera </label>
-        <input type="text" id="carrera" name="carrera">
+        <input type="text" id="carrera" name="carrera" value="{{ old('carrera') ?? $alumno->carrera}}">
 
         <button type="submit"> Guardar informacion </button>
     </form>
